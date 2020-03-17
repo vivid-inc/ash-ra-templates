@@ -21,6 +21,9 @@
 (defn art-my-lib-local-root []
   (art/render "art-my-lib-local-root: <% (require '[my-lib.render :refer [em]]) %>Let's <%= (em \"emphasize\") %> this" {:dependencies {'my-lib {:local/root "../my-lib"}}}))
 
+(defn art-my-lib-sample-template []
+  (art/render "art-my-lib-sample-template: <% (require '[my-lib.render :refer [sample-template]]) %><%= sample-template %>" {:dependencies {'my-lib {:mvn/version "1.0.0"}}}))
+
 (defn art-my-lib-mvn-dep []
   (art/render "art-my-lib-mvn-dep: <% (require '[my-lib.render :refer [em]]) %>Let's <%= (em \"emphasize\") %> this" {:dependencies {'my-lib {:mvn/version "1.0.0"}}}))
 
@@ -36,6 +39,7 @@
              ; art-eval-template
              art-hiccup
              art-my-lib-mvn-dep
+             art-my-lib-sample-template
              ; art-my-lib-local-root
              ; art-plain-template
              my-lib-my-header]]
